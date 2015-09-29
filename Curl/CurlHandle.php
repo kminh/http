@@ -197,6 +197,11 @@ class CurlHandle
             $request->setHeader('Content-Length', $tempContentLength);
         }
 
+        // Add the accept-encoding header back
+        if ($acceptEncodingHeader) {
+            $request->addHeader('Accept-Encoding', $acceptEncodingHeader);
+        }
+
         // Apply the options to a new cURL handle.
         $handle = curl_init();
 
